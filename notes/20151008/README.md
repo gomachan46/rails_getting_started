@@ -60,3 +60,5 @@ rails s -b 0.0.0.0
 `http://192.168.44.10:3000` とか設定してあったアドレスにport3000でアクセスしたらRailsっぽい画面が見れる。
 
 portも変えたければ `-p <port>` とオプションを追加すれば可能。
+
+![hello rails](./hello_rails.png)
