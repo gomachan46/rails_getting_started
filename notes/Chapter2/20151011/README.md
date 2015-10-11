@@ -4,9 +4,9 @@
 
 # テーブル構成
 
-[usersテーブル](./users.png)
+![usersテーブル](./users.png)
 
-[micropostsテーブル](./microposts.png)
+![micropostsテーブル](./microposts.png)
 
 # scaffoldの生成
 
@@ -21,10 +21,10 @@ rails generate scaffold User name:string email:string
 
 これだけで色々と自動生成され、一通りのCRUDができるようになる
 
-[usersのscaffold](./users-scaffold.png)
+![usersのscaffold](./users-scaffold.png)
 
 # MVCの挙動
 
 このあたりはわかるので画像だけ。
 
-[rails-mvc](rails-mvc.png)
+![rails-mvc](rails-mvc.png)
