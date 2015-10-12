@@ -50,3 +50,43 @@ bundle exec rake db:migrate
 
 文字数制限を行うために、validationを行っていく。
 
+## app/models/micropost.rb
+
+```ruby
+class Micropost < ActiveRecord::Base
+  validates :content, length: { maximum: 140 }
+end
+```
+
+Railsのバリデーションはこういう風に書ける
+
+もろもろは http://railsguides.jp/active_record_validations.html のあたりをみればよさそう
+
+# ユーザーとマイクロポストをhas_manyで関連付ける
+
+リレーションをRailsでは次のように表せる
+
+詳しくは http://railsguides.jp/association_basics.html このあたり参照
+
+## app/models/user.rb
+
+```ruby
+class User < ActiveRecord::Base
+  has_many :microposts
+end
+```
+
+## app/models/micropost.rb
+
+```ruby
+class Micropost < ActiveRecord::Base
+  belongs_to :user
+  validates :content, length: { maximum: 140 }
+end
+```
+
+# rails console
+
+Railsアプリケーションを対話的に操作することが可能な便利ツール
+
+irbが立ち上がっていい感じに扱える
