@@ -100,3 +100,9 @@ bundle exec rake db:rollback
 ```
 bundle exec rake db:migrate VERSION=0
 ```
+
+マイグレーションを一からやり直すなら
+
+```
+bundle exec rake db:migrate:reset
+```
