@@ -106,3 +106,58 @@ bundle exec rake db:migrate VERSION=0
 ```
 bundle exec rake db:migrate:reset
 ```
+
+# テストの実行
+
+```
+bundle exec rake test
+```
+
+このチュートリアルではrspecではなくminitestを使っている様子。
+
+minitestを触ったことはないけど
+
+# TDD
+
+身につけておくとやっぱり捗るスキル。
+
+* アプリケーションのコードよりも明らかにテストコードの方が短くシンプルになる (=簡単に書ける) のであれば、テストを先に書けるようになることを目指す。
+* 期待している動作がまだ固まりきっていないのであれば、先にアプリケーションのコードを書き上げ、続いて期待する動作をテストコードで記述することを目指す。
+* セキュリティが最重要課題であれば、セキュリティモデルでエラーが発生した場合のテストを最初に書くべき。
+* バグを見つけたら、そのバグを再現するテストを真っ先に書き、回帰バグを防ぐ体制を整えてからアプリケーションのコードの修正に取りかかる。
+* 将来変更の可能性が少しでもあるコード (HTML構造の細部など) があれば必ずテストを書く。
+* リファクタリングの前には必ずテストを書き、エラーを起こしそうなコードや、特に止まってしまいそうなコードを集中的にテストする。
+
+レッド→グリーン→リファクタリングのサイクルを回して開発にリズムを作る
+
+# 少しだけ動的なページ
+
+## タイトルをテストする
+
+まず、テストから書く。
+
+今回は「特定のHTMLタグが存在することのテスト」を書く
+
+### test/controllers/static_pages_controller_test.rb
+
+```ruby
+ test "should get home" do
+    get :home
+    assert_response :success
+    assert_select "title", "Home | Ruby on Rails Tutorial Sample App"
+  end
+
+  test "should get help" do
+    get :help
+    assert_response :success
+    assert_select "title", "Help | Ruby on Rails Tutorial Sample App"
+  end
+
+  test "should get about" do
+    get :about
+    assert_response :success
+    assert_select "title", "About | Ruby on Rails Tutorial Sample App"
+  end
+```
+
+まずはタイトルなんて記述されていないので真っ赤にテストは落ちる。これでOK
