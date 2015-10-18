@@ -161,3 +161,37 @@ minitestを触ったことはないけど
 ```
 
 まずはタイトルなんて記述されていないので真っ赤にテストは落ちる。これでOK
+
+## タイトルを追加する
+
+テストがパスするように実装していく。
+
+### app/views/layouts/application.html.erb
+
+titleの部分を動的にする。
+
+```ruby
+<title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+```
+
+このyield文で用意された`:title`に値を各viewで埋めていく
+
+### app/views/static_pages/home.html.erb
+
+```ruby
+<% provide(:title, "Home") %>
+```
+
+### app/views/static_pages/help.html.erb
+
+```ruby
+<% provide(:title, "Help") %>
+```
+
+### app/views/static_pages/about.html.erb
+
+```ruby
+<% provide(:title, "About") %>
+```
+
+これで再びテストを実行するとGreen！良かった。
