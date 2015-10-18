@@ -132,7 +132,7 @@ minitestを触ったことはないけど
 
 # 少しだけ動的なページ
 
-## タイトルをテストする
+## タイトルをテストする(Red)
 
 まず、テストから書く。
 
@@ -162,7 +162,7 @@ minitestを触ったことはないけど
 
 まずはタイトルなんて記述されていないので真っ赤にテストは落ちる。これでOK
 
-## タイトルを追加する
+## タイトルを追加する(Green)
 
 テストがパスするように実装していく。
 
@@ -179,19 +179,23 @@ titleの部分を動的にする。
 ### app/views/static_pages/home.html.erb
 
 ```ruby
-<% provide(:title, "Home") %>
+<% provide(:title, "Home | Ruby on Rails Tutorial Sample App") %>
 ```
 
 ### app/views/static_pages/help.html.erb
 
 ```ruby
-<% provide(:title, "Help") %>
+<% provide(:title, "Help | Ruby on Rails Tutorial Sample App") %>
 ```
 
 ### app/views/static_pages/about.html.erb
 
 ```ruby
-<% provide(:title, "About") %>
+<% provide(:title, "About | Ruby on Rails Tutorial Sample App") %>
 ```
 
 これで再びテストを実行するとGreen！良かった。
+
+## 繰り返し記述している箇所を共通化する(Refactor)
+
+
