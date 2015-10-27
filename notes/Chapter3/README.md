@@ -198,4 +198,16 @@ titleの部分を動的にする。
 
 ## 繰り返し記述している箇所を共通化する(Refactor)
 
+`| Ruby on Rails Tutorial Sample App` という箇所を毎回書いていてアレなので、共通化してみる。
 
+この時、修正範囲は既にテストを書いてグリーンにしてあるのでテストが通れば何をしても良い状態。楽！
+
+### layoutファイルに書き加える
+
+### app/views/layouts/application.html.erb
+
+```ruby
+<title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+```
+
+このようにして共通部分で描画してあげれば冗長じゃなくてすむようになった。
