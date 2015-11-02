@@ -95,3 +95,6 @@ class Word
 end
 ```
 
+# 演習
+
+![exercise4.png](./exercise4.png)
